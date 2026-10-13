@@ -9,9 +9,9 @@ on:
       - site/**
       - tests/**
   schedule:
-    # 23:00 UTC Monday-Friday = 07:00 Beijing Tuesday-Saturday;
+    # 00:08 UTC Tuesday-Saturday = 08:08 Beijing Tuesday-Saturday;
     # after US regular close in both daylight-saving and standard time.
-    - cron: '0 23 * * 1-5'
+    - cron: '8 0 * * 2-6'
   workflow_dispatch:
 
 permissions:
@@ -58,6 +58,7 @@ jobs:
         uses: actions/deploy-pages@v4
   notify:
     needs: deploy
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
