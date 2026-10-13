@@ -22,6 +22,7 @@ STOCKS = {
     "META": "Meta",
     "TSLA": "特斯拉",
 }
+QQQ_INCEPTION = "1999-03-10"
 NEW_YORK = ZoneInfo("America/New_York")
 OUTPUT = Path(__file__).resolve().parents[1] / "site" / "data.json"
 
@@ -32,8 +33,13 @@ def get_text(url, headers=None):
         return response.read().decode("utf-8")
 
 
-def yahoo_daily(ticker, year):
-    start = datetime(year - 1, 12, 15, tzinfo=timezone.utc)
+def yahoo_daily(ticker, year, full_history=False):
+    start = datetime(
+        1999 if full_history else year - 1,
+        3 if full_history else 12,
+        10 if full_history else 15,
+        tzinfo=timezone.utc,
+    )
     end = datetime.now(timezone.utc) + timedelta(days=1)
     params = urlencode({
         "period1": int(start.timestamp()),
@@ -72,7 +78,26 @@ def sina_daily(ticker, year):
     ]
 
 
-def snapshot(series, source, now=None):
+def qqq_drawdown(history, as_of):
+    daily = sorted((date, close) for date, close in history if date <= as_of)
+    if not daily or daily[0][0] > QQQ_INCEPTION or daily[-1][0] != as_of:
+        raise ValueError("QQQ: full history or matching completed close is missing")
+    if any(close <= 0 for _, close in daily):
+        raise ValueError("QQQ: invalid historical close")
+    peak_date, peak = max(daily, key=lambda item: item[1])
+    close = daily[-1][1]
+    return {
+        "ticker": "QQQ",
+        "close": float(close.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)),
+        "peak_close": float(peak.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)),
+        "peak_date": peak_date,
+        "drawdown_pct": float(((1 - close / peak) * 100).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)),
+        "source": "Yahoo",
+    }
+
+
+def snapshot(series, source, now=None, qqq_error=None):
     now = now or datetime.now(timezone.utc)
     market_now = now.astimezone(NEW_YORK)
     year = market_now.year
@@ -114,27 +139,47 @@ def snapshot(series, source, now=None):
     as_of = dates.pop()
     if (market_now.date() - datetime.fromisoformat(as_of).date()).days > 7:
         raise ValueError(f"Latest close {as_of} is stale")
-    return {
+    result = {
         "as_of": as_of,
         "generated_at": now.isoformat(timespec="seconds"),
         "source": source,
         "stocks": sorted(rows, key=lambda row: row["ytd_pct"], reverse=True),
     }
+    if qqq_error is None:
+        try:
+            result["qqq"] = qqq_drawdown(series["QQQ"], as_of)
+        except ValueError as exc:
+            qqq_error = str(exc)
+    if qqq_error is not None:
+        result["qqq_error"] = "QQQ 历史行情暂不可用"
+        print(f"QQQ unavailable: {qqq_error}", file=sys.stderr)
+    return result
 
 
 def update():
     now = datetime.now(timezone.utc)
+    qqq_error = None
+    try:
+        qqq_history = yahoo_daily("QQQ", now.astimezone(NEW_YORK).year, full_history=True)
+    except (HTTPError, URLError, TimeoutError, ValueError, KeyError, IndexError) as exc:
+        qqq_history = []
+        qqq_error = str(exc)
     errors = []
     for source, fetch in (("Yahoo", yahoo_daily), ("Sina", sina_daily)):
         try:
             series = {ticker: fetch(ticker, now.astimezone(NEW_YORK).year) for ticker in STOCKS}
-            result = snapshot(series, source, now)
+            series["QQQ"] = qqq_history
+            result = snapshot(series, source, now, qqq_error=qqq_error)
         except (HTTPError, URLError, TimeoutError, ValueError, KeyError, IndexError, json.JSONDecodeError) as exc:
             errors.append(f"{source}: {exc}")
             continue
         if OUTPUT.exists():
             previous = json.loads(OUTPUT.read_text(encoding="utf-8"))
-            if previous["as_of"] >= result["as_of"]:
+            if previous["as_of"] > result["as_of"]:
+                raise RuntimeError(f"Refusing to replace newer snapshot {previous['as_of']}")
+            if previous["as_of"] == result["as_of"] and (
+                previous.get("qqq") or (previous.get("qqq_error") and not result.get("qqq"))
+            ):
                 print(f"No newer completed trading day ({previous['as_of']})")
                 return
         OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

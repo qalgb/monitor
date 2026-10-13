@@ -22,6 +22,10 @@
     button:hover { background: #d2ede7; }
     #status { min-height: 22px; margin: 18px 2px; color: #66768b; font-size: 14px; }
     #status.error { color: #b3343a; }
+    .qqq { margin: 16px 0 22px; padding: 22px 24px; background: #fff; border: 1px solid #e3eaf1; border-radius: 18px; }
+    .qqq h2 { font-size: 18px; margin: 0; }
+    .qqq .percent { margin: 14px 0 10px; }
+    .qqq p { margin: 0; color: #64738a; font-size: 13px; line-height: 1.6; }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .card { padding: 22px; }
     .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
@@ -50,6 +54,11 @@
       <button id="refresh" type="button">刷新数据</button>
     </div>
     <div id="status" role="status" aria-live="polite">正在获取收盘数据…</div>
+    <section class="qqq" aria-labelledby="qqq-title">
+      <h2 id="qqq-title">QQQ · 距历史最高收盘价</h2>
+      <div class="percent down" id="qqq-drawdown">等待数据</div>
+      <p id="qqq-detail">使用完整日线历史计算，不含盘中价格。</p>
+    </section>
     <div class="grid" id="stocks"></div>
     <footer id="footnote">按美股交易日收盘价更新；非实时行情，不构成投资建议。</footer>
   </main>
@@ -69,6 +78,15 @@
           throw new Error("数据不完整");
         }
         document.getElementById("date").textContent = data.as_of;
+        const drawdown = document.getElementById("qqq-drawdown");
+        const detail = document.getElementById("qqq-detail");
+        if (data.qqq) {
+          drawdown.textContent = `回撤 ${data.qqq.drawdown_pct.toFixed(2)}%`;
+          detail.textContent = `收盘 $${data.qqq.close.toFixed(2)} · 历史最高收盘 $${data.qqq.peak_close.toFixed(2)}（${data.qqq.peak_date}）· 数据来源：${data.qqq.source}`;
+        } else {
+          drawdown.textContent = data.qqq_error || "等待首次更新";
+          detail.textContent = data.qqq_error ? "七巨头行情仍正常更新；QQQ 将在下次获取完整历史数据后恢复。" : "QQQ 数据将在下一次收盘更新后显示。";
+        }
         stocks.replaceChildren();
         for (const item of data.stocks) {
           const card = document.createElement("article");

@@ -1,6 +1,13 @@
 name: Update and publish Magnificent Seven
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish.yml
+      - scripts/**
+      - site/**
+      - tests/**
   schedule:
     # 23:00 UTC Monday-Friday = 07:00 Beijing Tuesday-Saturday;
     # after US regular close in both daylight-saving and standard time.

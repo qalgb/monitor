@@ -19,15 +19,28 @@ def notify():
     if not webhook or not webhook.startswith("https://open.feishu.cn/open-apis/bot/v2/hook/"):
         raise ValueError("Set FEISHU_WEBHOOK to the Feishu group custom bot webhook in Actions secrets")
     data = json.loads(DATA.read_text(encoding="utf-8"))
-    if SENT.exists() and json.loads(SENT.read_text(encoding="utf-8"))["as_of"] >= data["as_of"]:
-        print(f"Already notified for {data['as_of']}")
-        return
+    if SENT.exists():
+        sent = json.loads(SENT.read_text(encoding="utf-8"))
+        if sent["as_of"] > data["as_of"] or (
+            sent["as_of"] == data["as_of"]
+            and (not data.get("qqq") or sent.get("qqq"))
+        ):
+            print(f"Already notified for {data['as_of']}")
+            return
     lines = [f"美股七巨头年初至今 · {data['as_of']} 收盘"]
     for stock in data["stocks"]:
         lines.append(
             f"{stock['name']} {stock['ticker']}: {stock['ytd_pct']:+.2f}%"
             f"  (${stock['close']:.2f})"
         )
+    if "qqq" in data:
+        qqq = data["qqq"]
+        lines.append(
+            f"QQQ 距历史最高收盘价回撤 {qqq['drawdown_pct']:.2f}%"
+            f"  (${qqq['close']:.2f} / ${qqq['peak_close']:.2f}, {qqq['peak_date']})"
+        )
+    elif "qqq_error" in data:
+        lines.append(data["qqq_error"])
     lines.extend((f"基准：上年最后交易日收盘价｜数据：{data['source']}", PAGE))
     payload = json.dumps({
         "msg_type": "text", "content": {"text": "\n".join(lines)}
@@ -38,7 +51,7 @@ def notify():
     if result.get("code", result.get("StatusCode")) != 0:
         raise ValueError(f"Feishu rejected notification: {result}")
     SENT.parent.mkdir(parents=True, exist_ok=True)
-    SENT.write_text(json.dumps({"as_of": data["as_of"]}) + "\n", encoding="utf-8")
+    SENT.write_text(json.dumps({"as_of": data["as_of"], "qqq": "qqq" in data}) + "\n", encoding="utf-8")
     print(f"Notified for {data['as_of']}")
 
 
