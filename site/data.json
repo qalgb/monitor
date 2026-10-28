@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-26",
-  "generated_at": "2026-10-27T04:49:23+00:00",
+  "as_of": "2026-10-27",
+  "generated_at": "2026-10-28T05:24:12+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 343.91,
-      "ytd_pct": 26.5
+      "close": 347.1,
+      "ytd_pct": 27.68
     },
     {
       "ticker": "NVDA",
       "name": "英伟达",
       "base_date": "2025-12-31",
       "base_close": 186.5,
-      "close": 216.0,
-      "ytd_pct": 15.82
+      "close": 217.94,
+      "ytd_pct": 16.86
     },
     {
       "ticker": "MSFT",
       "name": "微软",
       "base_date": "2025-12-31",
       "base_close": 483.62,
-      "close": 532.6,
-      "ytd_pct": 10.13
+      "close": 531.33,
+      "ytd_pct": 9.87
     },
     {
       "ticker": "AMZN",
       "name": "亚马逊",
       "base_date": "2025-12-31",
       "base_close": 230.82,
-      "close": 249.09,
-      "ytd_pct": 7.92
+      "close": 253.1,
+      "ytd_pct": 9.65
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
       "base_date": "2025-12-31",
       "base_close": 313.0,
-      "close": 316.8,
-      "ytd_pct": 1.21
+      "close": 320.58,
+      "ytd_pct": 2.42
     },
     {
       "ticker": "META",
       "name": "Meta",
       "base_date": "2025-12-31",
       "base_close": 660.09,
-      "close": 630.56,
-      "ytd_pct": -4.47
+      "close": 620.19,
+      "ytd_pct": -6.04
     },
     {
       "ticker": "TSLA",
       "name": "特斯拉",
       "base_date": "2025-12-31",
       "base_close": 449.72,
-      "close": 391.62,
-      "ytd_pct": -12.92
+      "close": 407.46,
+      "ytd_pct": -9.4
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 712.2,
+    "close": 721.25,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 6.25,
+    "drawdown_pct": 5.06,
     "source": "Yahoo"
   }
 }
