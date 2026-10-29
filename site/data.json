@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-27",
-  "generated_at": "2026-10-28T05:24:12+00:00",
+  "as_of": "2026-10-28",
+  "generated_at": "2026-10-29T05:33:21+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 347.1,
-      "ytd_pct": 27.68
+      "close": 343.83,
+      "ytd_pct": 26.47
     },
     {
       "ticker": "NVDA",
       "name": "英伟达",
       "base_date": "2025-12-31",
       "base_close": 186.5,
-      "close": 217.94,
-      "ytd_pct": 16.86
-    },
-    {
-      "ticker": "MSFT",
-      "name": "微软",
-      "base_date": "2025-12-31",
-      "base_close": 483.62,
-      "close": 531.33,
-      "ytd_pct": 9.87
+      "close": 215.38,
+      "ytd_pct": 15.49
     },
     {
       "ticker": "AMZN",
       "name": "亚马逊",
       "base_date": "2025-12-31",
       "base_close": 230.82,
-      "close": 253.1,
-      "ytd_pct": 9.65
+      "close": 254.6,
+      "ytd_pct": 10.3
+    },
+    {
+      "ticker": "MSFT",
+      "name": "微软",
+      "base_date": "2025-12-31",
+      "base_close": 483.62,
+      "close": 531.01,
+      "ytd_pct": 9.8
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
       "base_date": "2025-12-31",
       "base_close": 313.0,
-      "close": 320.58,
-      "ytd_pct": 2.42
+      "close": 324.89,
+      "ytd_pct": 3.8
     },
     {
       "ticker": "META",
       "name": "Meta",
       "base_date": "2025-12-31",
       "base_close": 660.09,
-      "close": 620.19,
-      "ytd_pct": -6.04
+      "close": 612.49,
+      "ytd_pct": -7.21
     },
     {
       "ticker": "TSLA",
       "name": "特斯拉",
       "base_date": "2025-12-31",
       "base_close": 449.72,
-      "close": 407.46,
-      "ytd_pct": -9.4
+      "close": 404.22,
+      "ytd_pct": -10.12
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 721.25,
+    "close": 725.61,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 5.06,
+    "drawdown_pct": 4.48,
     "source": "Yahoo"
   }
 }
