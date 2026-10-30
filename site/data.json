@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-28",
-  "generated_at": "2026-10-29T05:33:21+00:00",
+  "as_of": "2026-10-29",
+  "generated_at": "2026-10-30T05:33:29+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 343.83,
-      "ytd_pct": 26.47
+      "close": 348.91,
+      "ytd_pct": 28.34
     },
     {
       "ticker": "NVDA",
       "name": "英伟达",
       "base_date": "2025-12-31",
       "base_close": 186.5,
-      "close": 215.38,
-      "ytd_pct": 15.49
-    },
-    {
-      "ticker": "AMZN",
-      "name": "亚马逊",
-      "base_date": "2025-12-31",
-      "base_close": 230.82,
-      "close": 254.6,
-      "ytd_pct": 10.3
+      "close": 213.66,
+      "ytd_pct": 14.56
     },
     {
       "ticker": "MSFT",
       "name": "微软",
       "base_date": "2025-12-31",
       "base_close": 483.62,
-      "close": 531.01,
-      "ytd_pct": 9.8
+      "close": 530.14,
+      "ytd_pct": 9.62
     },
     {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
+      "ticker": "AMZN",
+      "name": "亚马逊",
       "base_date": "2025-12-31",
-      "base_close": 313.0,
-      "close": 324.89,
-      "ytd_pct": 3.8
+      "base_close": 230.82,
+      "close": 243.79,
+      "ytd_pct": 5.62
     },
     {
       "ticker": "META",
       "name": "Meta",
       "base_date": "2025-12-31",
       "base_close": 660.09,
-      "close": 612.49,
-      "ytd_pct": -7.21
+      "close": 624.52,
+      "ytd_pct": -5.39
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "base_date": "2025-12-31",
+      "base_close": 313.0,
+      "close": 283.82,
+      "ytd_pct": -9.32
     },
     {
       "ticker": "TSLA",
       "name": "特斯拉",
       "base_date": "2025-12-31",
       "base_close": 449.72,
-      "close": 404.22,
-      "ytd_pct": -10.12
+      "close": 403.3,
+      "ytd_pct": -10.32
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 725.61,
+    "close": 715.34,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 4.48,
+    "drawdown_pct": 5.83,
     "source": "Yahoo"
   }
 }
