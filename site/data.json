@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-02",
-  "generated_at": "2026-11-03T06:29:32+00:00",
+  "as_of": "2026-11-03",
+  "generated_at": "2026-11-04T06:00:06+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 338.32,
-      "ytd_pct": 24.45
+      "close": 331.9,
+      "ytd_pct": 22.08
     },
     {
       "ticker": "NVDA",
       "name": "英伟达",
       "base_date": "2025-12-31",
       "base_close": 186.5,
-      "close": 202.06,
-      "ytd_pct": 8.34
+      "close": 206.69,
+      "ytd_pct": 10.83
     },
     {
       "ticker": "AMZN",
       "name": "亚马逊",
       "base_date": "2025-12-31",
       "base_close": 230.82,
-      "close": 245.63,
-      "ytd_pct": 6.42
+      "close": 250.69,
+      "ytd_pct": 8.61
     },
     {
       "ticker": "MSFT",
       "name": "微软",
       "base_date": "2025-12-31",
       "base_close": 483.62,
-      "close": 507.12,
-      "ytd_pct": 4.86
+      "close": 520.99,
+      "ytd_pct": 7.73
     },
     {
       "ticker": "META",
       "name": "Meta",
       "base_date": "2025-12-31",
       "base_close": 660.09,
-      "close": 606.73,
-      "ytd_pct": -8.08
-    },
-    {
-      "ticker": "TSLA",
-      "name": "特斯拉",
-      "base_date": "2025-12-31",
-      "base_close": 449.72,
-      "close": 403.82,
-      "ytd_pct": -10.21
+      "close": 621.03,
+      "ytd_pct": -5.92
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
       "base_date": "2025-12-31",
       "base_close": 313.0,
-      "close": 278.99,
-      "ytd_pct": -10.87
+      "close": 280.03,
+      "ytd_pct": -10.53
+    },
+    {
+      "ticker": "TSLA",
+      "name": "特斯拉",
+      "base_date": "2025-12-31",
+      "base_close": 449.72,
+      "close": 398.5,
+      "ytd_pct": -11.39
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 681.09,
+    "close": 685.28,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 10.34,
+    "drawdown_pct": 9.79,
     "source": "Yahoo"
   }
 }
