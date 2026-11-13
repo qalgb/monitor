@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-11",
-  "generated_at": "2026-11-12T06:59:01+00:00",
+  "as_of": "2026-11-12",
+  "generated_at": "2026-11-13T06:24:23+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 355.63,
-      "ytd_pct": 30.81
+      "close": 354.88,
+      "ytd_pct": 30.54
     },
     {
       "ticker": "AMZN",
       "name": "亚马逊",
       "base_date": "2025-12-31",
       "base_close": 230.82,
-      "close": 266.17,
-      "ytd_pct": 15.31
+      "close": 267.44,
+      "ytd_pct": 15.87
     },
     {
       "ticker": "MSFT",
       "name": "微软",
       "base_date": "2025-12-31",
       "base_close": 483.62,
-      "close": 521.13,
-      "ytd_pct": 7.76
-    },
-    {
-      "ticker": "META",
-      "name": "Meta",
-      "base_date": "2025-12-31",
-      "base_close": 660.09,
-      "close": 628.77,
-      "ytd_pct": -4.74
+      "close": 523.0,
+      "ytd_pct": 8.14
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
       "base_date": "2025-12-31",
       "base_close": 313.0,
-      "close": 293.45,
-      "ytd_pct": -6.25
+      "close": 298.7,
+      "ytd_pct": -4.57
+    },
+    {
+      "ticker": "META",
+      "name": "Meta",
+      "base_date": "2025-12-31",
+      "base_close": 660.09,
+      "close": 623.61,
+      "ytd_pct": -5.53
     },
     {
       "ticker": "NVDA",
       "name": "英伟达",
       "base_date": "2025-12-31",
       "base_close": 186.5,
-      "close": 173.73,
-      "ytd_pct": -6.85
+      "close": 166.19,
+      "ytd_pct": -10.89
     },
     {
       "ticker": "TSLA",
       "name": "特斯拉",
       "base_date": "2025-12-31",
       "base_close": 449.72,
-      "close": 390.84,
-      "ytd_pct": -13.09
+      "close": 397.45,
+      "ytd_pct": -11.62
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 690.38,
+    "close": 688.17,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 9.12,
+    "drawdown_pct": 9.41,
     "source": "Yahoo"
   }
 }
