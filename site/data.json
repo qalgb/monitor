@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-23",
-  "generated_at": "2026-11-24T09:40:56+00:00",
+  "as_of": "2026-11-24",
+  "generated_at": "2026-11-25T08:14:32+00:00",
   "source": "Yahoo",
   "stocks": [
     {
@@ -8,64 +8,64 @@
       "name": "苹果",
       "base_date": "2025-12-31",
       "base_close": 271.86,
-      "close": 349.08,
-      "ytd_pct": 28.4
+      "close": 354.07,
+      "ytd_pct": 30.24
     },
     {
       "ticker": "AMZN",
       "name": "亚马逊",
       "base_date": "2025-12-31",
       "base_close": 230.82,
-      "close": 255.39,
-      "ytd_pct": 10.64
+      "close": 252.29,
+      "ytd_pct": 9.3
     },
     {
       "ticker": "MSFT",
       "name": "微软",
       "base_date": "2025-12-31",
       "base_close": 483.62,
-      "close": 492.5,
-      "ytd_pct": 1.84
+      "close": 496.13,
+      "ytd_pct": 2.59
     },
     {
       "ticker": "META",
       "name": "Meta",
       "base_date": "2025-12-31",
       "base_close": 660.09,
-      "close": 597.6,
-      "ytd_pct": -9.47
+      "close": 589.82,
+      "ytd_pct": -10.65
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
       "base_date": "2025-12-31",
       "base_close": 313.0,
-      "close": 282.1,
-      "ytd_pct": -9.87
-    },
-    {
-      "ticker": "NVDA",
-      "name": "英伟达",
-      "base_date": "2025-12-31",
-      "base_close": 186.5,
-      "close": 165.05,
-      "ytd_pct": -11.5
+      "close": 279.05,
+      "ytd_pct": -10.85
     },
     {
       "ticker": "TSLA",
       "name": "特斯拉",
       "base_date": "2025-12-31",
       "base_close": 449.72,
-      "close": 385.46,
-      "ytd_pct": -14.29
+      "close": 384.68,
+      "ytd_pct": -14.46
+    },
+    {
+      "ticker": "NVDA",
+      "name": "英伟达",
+      "base_date": "2025-12-31",
+      "base_close": 186.5,
+      "close": 155.38,
+      "ytd_pct": -16.69
     }
   ],
   "qqq": {
     "ticker": "QQQ",
-    "close": 651.03,
+    "close": 638.1,
     "peak_close": 759.66,
     "peak_date": "2026-10-06",
-    "drawdown_pct": 14.3,
+    "drawdown_pct": 16.0,
     "source": "Yahoo"
   }
 }
